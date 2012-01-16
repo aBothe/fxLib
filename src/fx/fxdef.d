@@ -76,7 +76,7 @@ public:
 /// wait t seconds
 void wait(double t=1.0)
 {
-	Thread.sleep(cast(long)(t*10_000_000));
+	core.thread.Thread.sleep(cast(long)(t*10_000_000));
 }
 
 /// toggle the checked state of a menu item

@@ -31,7 +31,7 @@ import std.c.windows.windows;
 extern(Windows)
 {
 
-typedef char* WMP3_HANDLE;///
+alias char* WMP3_HANDLE;///
 
 enum
 {
