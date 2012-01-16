@@ -1,0 +1,168 @@
+module fx.controls.tab;
+
+import fx.win32,fx.fxdef;
+import fx.control;
+import std.string, std.conv;
+import fx.list;
+
+class TabControl : Control
+	{
+		private:
+			List!(TabPage) tarr;
+		public:
+			static enum
+			{
+				TCM_FIRST               =0x1300,
+
+				TCIF_TEXT               =0x0001,
+				TCIF_IMAGE              =0x0002,
+				TCIF_RTLREADING         =0x0004,
+				TCIF_PARAM              =0x0008,
+				TCIF_STATE              =0x0010,
+				TCIS_BUTTONPRESSED      =0x0001,
+				TCIS_HIGHLIGHTED        =0x0002,
+
+				TCS_SCROLLOPPOSITE      =0x0001,   // assumes multiline tab
+				TCS_BOTTOM              =0x0002,
+				TCS_RIGHT               =0x0002,
+				TCS_MULTISELECT         =0x0004 , // allow multi-select in button mode
+				TCS_FLATBUTTONS         =0x0008,
+				TCS_FORCEICONLEFT       =0x0010,
+				TCS_FORCELABELLEFT      =0x0020,
+				TCS_HOTTRACK            =0x0040,
+				TCS_VERTICAL            =0x0080,
+				TCS_TABS                =0x0000,
+				TCS_BUTTONS             =0x0100,
+				TCS_SINGLELINE          =0x0000,
+				TCS_MULTILINE           =0x0200,
+				TCS_RIGHTJUSTIFY        =0x0000,
+				TCS_FIXEDWIDTH          =0x0400,
+				TCS_RAGGEDRIGHT         =0x0800,
+				TCS_FOCUSONBUTTONDOWN   =0x1000,
+				TCS_OWNERDRAWFIXED      =0x2000,
+				TCS_TOOLTIPS            =0x4000,
+				TCS_FOCUSNEVER          =0x8000,
+// EX styles for use with TCM_SETEXTENDEDSTYLE
+				TCS_EX_FLATSEPARATORS   =0x00000001,
+				TCS_EX_REGISTERDROP     =0x00000002,
+			}
+			static enum
+			{
+				TCM_GETIMAGELIST        =(TCM_FIRST + 2),
+				TCM_SETIMAGELIST        =(TCM_FIRST + 3),
+				TCM_GETITEMCOUNT        =(TCM_FIRST + 4),
+				TCM_GETITEMA            =(TCM_FIRST + 5),
+				TCM_SETITEMA            =(TCM_FIRST + 6),
+				TCM_INSERTITEMA         =(TCM_FIRST + 7),
+				TCM_DELETEITEM          =(TCM_FIRST + 8),
+				TCM_DELETEALLITEMS      =(TCM_FIRST + 9),
+				TCM_GETITEMRECT         =(TCM_FIRST + 10),
+				TCM_GETCURSEL           =(TCM_FIRST + 11),
+				TCM_SETCURSEL           =(TCM_FIRST + 12),
+			}
+
+			int itemcount()
+			{
+				return SendMessageA(handle,TCM_GETITEMCOUNT,0,0);
+			}
+			TCITEMA GetItem(int i)
+			{
+				TCITEMA ret;
+				SendMessageA(handle,TCM_GETITEMA,i,cast(int) &ret);
+				return ret;
+			}
+			void SetItem(int i, TCITEMA item)
+			{
+				SendMessageA(handle,TCM_SETITEMA,i,cast(int) &item);
+			}
+			void InsertItem(int i, TCITEMA item)
+			{
+				SendMessageA(handle,TCM_INSERTITEMA,i,cast(int) &item);
+			}
+			void DeleteItem(int i)
+			{
+				SendMessageA(handle,TCM_DELETEITEM,i,0);
+				tarr.RemoveAt(i);
+			}
+			void Clear()
+			{
+				SendMessageA(handle,TCM_DELETEALLITEMS,0,0);
+			}
+			int selectedindex()
+			{
+				return SendMessageA(handle,TCM_GETCURSEL,0,0);
+			}
+			void selectedindex(int i)
+			{
+				SendMessageA(handle,TCM_SETCURSEL,i,0);
+			}
+			TabPage selectedPage()
+			{
+				return tarr[selectedindex];
+			}
+			static struct TCITEMHEADERA
+				{
+					UINT mask;
+					UINT lpReserved1;
+					UINT lpReserved2;
+					LPSTR pszText;
+					int cchTextMax;
+					int iImage;
+				}
+			static struct TCITEMA
+				{
+					UINT mask;
+					DWORD dwState;
+					DWORD dwStateMask;
+					LPSTR pszText;
+					int cchTextMax;
+					int iImage;
+					LPARAM lParam;
+				}
+
+			this(Control par,int x,int y,int w,int h,int style=0)
+			{
+				super(par,"SysTabControl32",x,y,w,h,style);
+				tarr=new List!(TabPage);
+			}
+
+			void Add(TabPage t)
+			{
+				tarr.Add(t);
+				InsertItem(itemcount,t.GetItem());
+			}
+
+			Point tabSize(int i=0)
+			{
+				RECT r;
+				SendMessageA(handle,TCM_GETITEMRECT,i,cast(int) &r);
+				return Point(r.right,r.bottom);
+			}
+
+	}
+
+class TabPage : Control
+	{
+		private:
+			TabControl.TCITEMA ti;
+		public:
+			TabControl.TCITEMA GetItem()
+			{
+				return ti;
+			}
+			override void text(string t)
+			{
+				ti.pszText=cast(char*)toz(t);
+			}
+			override string text()
+			{
+				return to!(string)(ti.pszText);
+			}
+			this(string text)
+			{
+				this.text=text;
+				ti.mask=TabControl.TCIF_TEXT;
+				ti.cchTextMax=260;
+			}
+
+	}

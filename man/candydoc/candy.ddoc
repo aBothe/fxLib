@@ -1,0 +1,75 @@
+MODULES =
+	$(MODULE fx.application)
+	$(MODULE fx.console)
+	$(MODULE fx.control)
+	$(MODULE fx.event)
+	$(MODULE fx.file)
+	$(MODULE fx.fxdef)
+	$(MODULE fx.memory)
+	$(MODULE fx.mp3)
+	$(MODULE fx.myfx)
+	$(MODULE fx.string)
+	$(MODULE fx.win32)
+	$(MODULE fx.window)
+	$(MODULE fx.controls.button)
+	$(MODULE fx.controls.combobox)
+	$(MODULE fx.controls.filedialog)
+	$(MODULE fx.controls.ipbox)
+	$(MODULE fx.controls.listbox)
+	$(MODULE fx.controls.listview)
+	$(MODULE fx.controls.notifyicon)
+	$(MODULE fx.controls.progressbar)
+	$(MODULE fx.controls.statusbar)
+	$(MODULE fx.controls.textbox)
+	$(MODULE fx.controls.timer)
+	$(MODULE fx.controls.treeview)
+	$(MODULE fx.customcontrols.lineDiagram)
+	$(MODULE fx.customcontrols.piechart)
+	$(MODULE fx.net.http)
+	$(MODULE fx.net.httpclient)
+	$(MODULE fx.net.httpserver)
+	$(MODULE fx.net.tcpserver)
+	$(MODULE fx.net.udplistener)
+
+
+
+
+
+
+DDOC =
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="text/javascript" http-equiv="content-script-type">
+<title>$(TITLE)</title>
+<link rel="stylesheet" type="text/css" href="candydoc/style.css">
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="candydoc/ie56hack.css"><![endif]-->
+<script language="JavaScript" src="candydoc/util.js" type="text/javascript"></script>
+<script language="JavaScript" src="candydoc/tree.js" type="text/javascript"></script>
+<script language="JavaScript" src="candydoc/explorer.js" type="text/javascript"></script>
+</head><body>
+<div id="tabarea"></div><div id="explorerclient"></div>
+<div id="content"><script>explorer.initialize("$(TITLE)");</script>
+	<table class="content">
+		<tr><td id="docbody"><h1>$(TITLE)</h1>$(BODY)</td></tr>
+		<tr><td id="docfooter">Page was generated with CandyDoc | Last change: $(DATETIME)</td></tr>
+	</table>
+</div>
+$(ADD_MODULES)
+</body></html>
+
+
+DDOC_DECL =<script>explorer.outline.writeEnabled = true;</script>$(DT <span class="decl">$0</span>)<script>explorer.outline.writeEnabled = false;</script>
+
+
+DDOC_PSYMBOL =<span class="currsymbol">$0</span><script>explorer.outline.addDecl('$0');</script>
+
+
+DDOC_MEMBERS =<script>explorer.outline.incSymbolLevel();</script>$(DL $0)<script>explorer.outline.decSymbolLevel();</script>
+
+
+DDOC_PARAM_ID =<td nowrap valign="top" style="padding-right: 8px">$0</td>
+
+
+DDOC_PARAM =<span class="funcparam">$0</span>
+ADD_MODULES =<script>$(MODULES)</script>
+MODULE =explorer.packageExplorer.addModule("$0");
