@@ -16,8 +16,8 @@ class HTTPserver : TcpServer
 	{
 		if(ReqCall != null)
 		{
-			scope HTTPrequest sr;
-			scope HTTPanswer sans;
+			HTTPrequest sr;
+			HTTPanswer sans;
 			try{
 			sr=new HTTPrequest(data);
 			}catch{}

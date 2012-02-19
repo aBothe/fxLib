@@ -44,7 +44,7 @@ class Pie : Control
 
 		if(showDescription)
 		{
-			scope wstring s;
+			wstring s;
 			SetBkColor(dc,0xFFFFFF);
 			SelectObject(dc, fpen);
 			SetTextAlign(dc,TA_CENTER);

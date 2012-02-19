@@ -477,7 +477,7 @@ class TreeView : Control{
 
 	bool isDescendantOf(HTREEITEM ancestor, HTREEITEM child) ///
 	{
-		scope HTREEITEM tpar=child;
+		HTREEITEM tpar=child;
 		while(tpar)
 		{
 			tpar=getParentItem(tpar);

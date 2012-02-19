@@ -2,6 +2,7 @@
 import std.file,std.path, core.thread, std.utf, std.string, std.md5, std.math,std.conv;
 import fx.string, fx.memory;
 import fx.win32, std.regex, std.conv, std.traits;
+import std.ascii;
 
 /// short form of std.string.toStringz
 alias std.string.toStringz toz;
@@ -199,8 +200,13 @@ ulong HexStrToLong(string s) // e.g. "0xFF" will result in 255
 	{
 		int v=-1;
 		int pos=t.length-i-1;
-		foreach(j, d; hexdigits) {if(c==d) v=j;} // assign hexadecimal value of c (0-15) to v
-		if(v<0) break; // if c not a hexdigit: return
+		foreach(j, d; fullHexDigits) 
+			if(c==d) 
+				v=j; // assign hexadecimal value of c (0-15) to v
+		
+		if(v<0) 
+			break; // if c not a hexdigit: return
+		
 		ret+=v*(std.math.pow(16.0,pos));
 	}
 	return ret;
