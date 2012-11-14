@@ -1,3 +1,4 @@
+module fx.net.httpserver;
 import std.socket,
 core.thread,
 std.stdio,

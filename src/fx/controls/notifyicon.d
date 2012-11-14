@@ -1,3 +1,4 @@
+module fx.controls.notifyicon;
 import fx.fxdef, fx.control, fx.win32, std.conv, std.utf, fx.event;
 
 pragma(lib,"shell32.lib");

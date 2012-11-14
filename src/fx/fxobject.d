@@ -1,3 +1,4 @@
+module fx.fxobject;
 import fx.memory;
 ///A basic class that don't use the D GC to allocate its memory
 class FXObject : Object 

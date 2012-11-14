@@ -1,3 +1,4 @@
+module fx.net.tcpserver;
 import std.socket, std.conv,
 core.thread,
 std.stdio,

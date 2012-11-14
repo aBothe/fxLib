@@ -1,3 +1,4 @@
+module fx.memory;
 /**
 This module creates an interface to accessing memory from an extern process
 */

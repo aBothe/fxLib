@@ -1,3 +1,4 @@
+module fx.control;
 import core.memory;
 
 import fx.fxdef;

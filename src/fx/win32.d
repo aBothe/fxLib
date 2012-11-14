@@ -12,7 +12,6 @@ import std.c.windows.winsock;
 
 extern(Windows)
 	{
-int MessageBoxW(HWND hWnd, wchar* lpText, wchar* lpCaption, uint uType);
 		enum
 		{
 			/*
@@ -1597,11 +1596,6 @@ int MessageBoxW(HWND hWnd, wchar* lpText, wchar* lpCaption, uint uType);
 		SHORT GetKeyState(int key);
 		bool GetKeyboardState(LPBYTE lpKeyState);
 		bool SetKeyboardState(LPBYTE lpKeyState);
-		HWND SetTimer(HWND hWnd ,
-					  int nIDEvent,
-					  int uElapse,
-					  TIMERPROC lpTimerFunc);
-		BOOL KillTimer(HWND hWnd, int IdEvent);
 		enum
 		{
 			ERROR_ALREADY_EXISTS        =183,

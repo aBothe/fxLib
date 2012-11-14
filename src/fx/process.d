@@ -1,3 +1,4 @@
+module fx.process;
 import fx.win32,std.utf,std.conv, fx.fxobject;
 
 struct ProcessStartInfo ///

@@ -1,3 +1,4 @@
+module fx.controls.filedialog;
 import fx.win32,fx.fxdef, std.file;
 import fx.control;
 import std.string, std.conv;

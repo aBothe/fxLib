@@ -1,3 +1,4 @@
+module fx.event;
 import fx.win32,fx.fxobject;
 /**
 *Represents an event handler which contains an array of delegates of type ReturnType with the calling parameters Params

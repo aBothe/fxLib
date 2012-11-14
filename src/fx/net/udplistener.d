@@ -1,3 +1,4 @@
+module fx.net.udplistener;
 import std.socket,
 core.thread,
 std.stdio,

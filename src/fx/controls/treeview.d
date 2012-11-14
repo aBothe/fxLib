@@ -1,3 +1,4 @@
+module fx.controls.treeview;
 import fx.win32, fx.event, fx.fxdef, fx.control, std.c.wcharh, std.utf;
 
 static struct TREEITEM{}

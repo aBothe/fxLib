@@ -1,3 +1,4 @@
+module fx.controls.progressbar;
 import fx.win32;
 import fx.control;
 import std.string;

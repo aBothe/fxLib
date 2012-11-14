@@ -1,3 +1,4 @@
+module fx.controls.listview;
 import fx.win32, fx.event, fx.fxdef, std.conv;
 import fx.control;
 import std.string;

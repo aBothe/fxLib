@@ -1,3 +1,4 @@
+module fx.customcontrols.piechart;
 import fx.fxdef, fx.win32, std.conv, std.string, std.math,
 fx.control, fx.event;
 

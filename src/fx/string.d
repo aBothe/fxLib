@@ -1,3 +1,4 @@
+module fx.string;
 import std.string;
 import std.array;
 import fx.list;

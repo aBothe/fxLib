@@ -1,3 +1,4 @@
+module fx.application;
 import fx.win32;
 
 /// Window message processing

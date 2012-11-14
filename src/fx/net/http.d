@@ -1,3 +1,4 @@
+module fx.net.http;
 import fx.myfx,
 std.stdio,fx.list,
 std.conv,

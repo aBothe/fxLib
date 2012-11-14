@@ -1,3 +1,5 @@
+module fx.console;
+
 import fx.myfx, fx.win32, fx.event;
 import std.conv, core.thread;
 import std.stdio;

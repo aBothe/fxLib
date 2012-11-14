@@ -1,4 +1,4 @@
-
+module fx.fxdef;
 import std.file,std.path, core.thread, std.utf, std.string, std.md5, std.math,std.conv;
 import fx.string, fx.memory;
 import fx.win32, std.regex, std.conv, std.traits;
@@ -77,7 +77,7 @@ public:
 /// wait t seconds
 void wait(double t=1.0)
 {
-	core.thread.Thread.sleep(cast(long)(t*10_000_000));
+	core.thread.Thread.sleep(dur!("msecs")(cast(int)(t*1000)));
 }
 
 /// toggle the checked state of a menu item
@@ -264,19 +264,21 @@ class MessageBox
 	 * Returns:
 	 * The button id which the user have selected
 	 */
-	static int Show(char* t, char* cap=cast(char*)" ",int style=Ok)
+	static int Show(char* t, char* cap=cast(char*)" ",int style=Ok) nothrow
 	{
 		return MessageBoxA(null,t,cap,style);
 	}
 	///ditto
-	static int Show(string t,string cap=" ",int style=Ok)
+	static int Show(string t,string cap=" ",int style=Ok) nothrow
 	{
 		return MessageBoxA(null,cast(char*)toz(t),cast(char*)toz(cap),style);
 	}
 	///ditto
-	static int Show(wstring t,wstring cap=" ",int style=Ok)
+	static int Show(wstring t,wstring cap=" ",int style=Ok) nothrow
 	{
+		try{
 		return MessageBoxW(null,cast(wchar*)t.ptr,cast(wchar*)cap.ptr,style);
+		}catch{return -1;}
 	}
 }
 

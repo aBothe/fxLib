@@ -1,3 +1,4 @@
+module fx.controls.button;
 import fx.fxdef;
 import fx.win32;
 import fx.control;

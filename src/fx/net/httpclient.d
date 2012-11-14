@@ -1,3 +1,4 @@
+module fx.net.httpclient;
 import std.socket,
 std.string,
 std.datetime,

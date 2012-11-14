@@ -1,3 +1,4 @@
+module fx.list;
 import fx.memory, std.algorithm, std.stdio, core.stdc.string, std.conv, std.traits;
 
 ///Interface for every type of list

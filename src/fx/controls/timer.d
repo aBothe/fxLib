@@ -1,3 +1,4 @@
+module fx.controls.timer;
 import core.memory;
 
 import fx.fxdef;
@@ -85,11 +86,14 @@ class Timer{
 }
 
 private:
-extern(Windows) void TimerCall(HWND h,uint msg,uint thandle,uint startupTime)
-{
-	foreach(i, t; Timer._gtimers)
+	extern(Windows) void TimerCall(HWND h,uint msg,uint thandle,uint startupTime) nothrow
 	{
-		if(t.handle!=thandle) continue;
-		t.Tick(t);
+		foreach(i, t; Timer._gtimers)
+		{
+			if(t.handle!=thandle) 
+				continue;
+			try{
+				t.Tick(t);
+			}catch(Exception x) { MessageBox.Show(x.msg, "Exception thrown in tick handler"); }
+		}
 	}
-}

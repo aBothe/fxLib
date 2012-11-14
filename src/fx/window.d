@@ -1,3 +1,4 @@
+module fx.window;
 import fx.fxdef;
 import fx.win32;
 

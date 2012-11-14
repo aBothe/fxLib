@@ -1,3 +1,4 @@
+module fx.customcontrols.lineDiagram;
 import fx.fxdef, fx.win32, fx.event, fx.control;
 
 /// Control class which draws function graphs into windows

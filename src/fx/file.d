@@ -1,3 +1,4 @@
+module fx.file;
 private import fx.fxdef,std.file, fx.win32, std.path, std.conv, std.utf, core.memory;
 private import std.stream, std.string;
 

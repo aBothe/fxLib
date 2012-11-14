@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE9BECBD-13F3-4599-9C41-D76060997E96}</ProjectGuid>
+    <PreferOneStepBuild>False</PreferOneStepBuild>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <Compiler>DMD2</Compiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>..</OutputPath>
+    <Externalconsole>True</Externalconsole>
+    <Target>StaticLibrary</Target>
+    <OutputName>fx.lib</OutputName>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj\Debug</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <DDocDirectory>..\man</DDocDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <Externalconsole>True</Externalconsole>
+    <Target>StaticLibrary</Target>
+    <OutputName>libfxLib</OutputName>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj\Release</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <Externalconsole>True</Externalconsole>
+    <Target>StaticLibrary</Target>
+    <OutputName>libfxLib</OutputName>
+    <UnittestMode>True</UnittestMode>
+    <ObjectsDirectory>obj\Unittest</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="fx\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fx\application.d" />
+    <Compile Include="fx\console.d" />
+    <Compile Include="fx\control.d" />
+    <Compile Include="fx\event.d" />
+    <Compile Include="fx\file.d" />
+    <Compile Include="fx\fxdef.d" />
+    <Compile Include="fx\fxobject.d" />
+    <Compile Include="fx\libwmp3.d" />
+    <Compile Include="fx\list.d" />
+    <Compile Include="fx\memory.d" />
+    <Compile Include="fx\mp3.d" />
+    <Compile Include="fx\myfx.d" />
+    <Compile Include="fx\process.d" />
+    <Compile Include="fx\string.d" />
+    <Compile Include="fx\win32.d" />
+    <Compile Include="fx\window.d" />
+    <Compile Include="fx\controls\button.d" />
+    <Compile Include="fx\controls\combobox.d" />
+    <Compile Include="fx\controls\filedialog.d" />
+    <Compile Include="fx\controls\ipbox.d" />
+    <Compile Include="fx\controls\listbox.d" />
+    <Compile Include="fx\controls\listview.d" />
+    <Compile Include="fx\controls\notifyicon.d" />
+    <Compile Include="fx\controls\progressbar.d" />
+    <Compile Include="fx\controls\statusbar.d" />
+    <Compile Include="fx\controls\textbox.d" />
+    <Compile Include="fx\controls\timer.d" />
+    <Compile Include="fx\controls\toolbar.d" />
+    <Compile Include="fx\controls\treeview.d" />
+    <Compile Include="fx\customcontrols\lineDiagram.d" />
+    <Compile Include="fx\customcontrols\piechart.d" />
+    <Compile Include="fx\net\http.d" />
+    <Compile Include="fx\net\httpclient.d" />
+    <Compile Include="fx\net\httpserver.d" />
+    <Compile Include="fx\net\tcpserver.d" />
+    <Compile Include="fx\net\udplistener.d" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fx\controls\mdi._d" />
+    <None Include="fx\controls\tab._d" />
+  </ItemGroup>
+</Project>

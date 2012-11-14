@@ -1,3 +1,4 @@
+module fx.libwmp3;
 /**
  * libwmp3 - multimedia library for playing mp3, mp2 files
  *
