@@ -654,7 +654,7 @@ struct LV_SETINFOTIP {
 		}
 
 
-	void Clear() /***/{SendMessageA(handle,LVM_DELETEALLITEMS, 0, 0);}
+	override void Clear() /***/{SendMessageA(handle,LVM_DELETEALLITEMS, 0, 0);}
 	void RemoveAt(uint id)/***/	{SendMessageA(handle,LVM_DELETEITEM, id, 0);}
 
 	int count() /***/{return SendMessageA(handle,LVM_GETITEMCOUNT, 0, 0);}

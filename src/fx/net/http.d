@@ -22,7 +22,7 @@ class HTTPanswer:FXObject
 
 	string TransferEncoding; /// chunked?
 
-	string toString()///builds a complete response answer which can be sent to a HTTP client, e.g. Browser
+	override string toString()///builds a complete response answer which can be sent to a HTTP client, e.g. Browser
 	{
 		ContentLength=Content.length;
 		string ret=
@@ -84,7 +84,7 @@ class HTTPrequest:FXObject
 	string[string] Headers;///
 	string Content;///
 
-	string toString()///builds the complete request string which goes to server directly
+	override string toString()///builds the complete request string which goes to server directly
 	{
 		if(manual) return Content;
 		
@@ -258,7 +258,7 @@ class URL:FXObject
 	}
 
 	///builds URL
-	string toString()
+	override string toString()
 	{
 		return Host~toHTTPResource();
 	}

@@ -114,7 +114,7 @@ CB_OKAY            = 0
 	void Add(wstring t) ///ditto
 	{if(String.EndsWith(t,"\0"w)) t~="\0"w; SendMessageW(handle,CB_ADDSTRING,0,cast(int) cast(wchar*)(t));}
 
-	void Clear() ///
+	override void Clear() ///
 	{SendMessageA(handle,CB_RESETCONTENT,0,0);}
 
 	void Insert(int i,string t)///

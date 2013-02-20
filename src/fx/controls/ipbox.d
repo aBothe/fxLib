@@ -48,7 +48,7 @@ SendMessageA(handle,IPM_GETADDRESS,0,cast(int) &ret);
 return [FIRST_IPADDRESS(ret),SECOND_IPADDRESS(ret),THIRD_IPADDRESS(ret),FOURTH_IPADDRESS(ret)];
 }
 
-string toString()///
+override string toString()///
 {
 	int[] r=value;
 return to!(string)(r[0])~"."~to!(string)(r[1])~"."~to!(string)(r[2])~"."~to!(string)(r[3]);

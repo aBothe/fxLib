@@ -15,7 +15,7 @@ private
 
 //pragma(lib,"uxtheme.lib");
 
-private extern(Windows) int mDoEvents(HWND h,uint msg,uint wp,int lp)
+private extern(Windows) int mDoEvents(HWND h,uint msg,uint wp,int lp) nothrow
 {
 	return DefWindowProcA(h,msg,wp,lp);
 }
@@ -32,7 +32,7 @@ static this()
 	wc.cbClsExtra = wc.cbWndExtra = 0;
 	wc.hbrBackground =CreateSolidBrush(0xFFFFFF);
 	wc.hCursor = LoadCursorA(null, IDC_ARROW);
-	RegisterClassA(&wc);
+	RegisterClassA(cast(const(WNDCLASSA*))&wc);
 }
 
 /******************************************************************************************************************
@@ -45,6 +45,9 @@ class Control
 		HANDLE handle; ///internal control handle
 		int Tag;///Instance specific tag
 	public:
+		
+		this(HANDLE hdl) { this.handle = hdl; }
+
 		/**Creates new control
 		* Params:
 		* parent = parent window, cannot be null
@@ -391,7 +394,10 @@ class Control
 
 		void Text(string t) ///ditto
 		{
-			SendMessageA(handle, WM_SETTEXT, cast(WPARAM) 0, cast(LPARAM) toz(t));
+			auto s = toz(t);
+			SendMessageA(handle, WM_SETTEXT, cast(WPARAM) 0, cast(LPARAM) s);
+			s.destroy();
+			std.c.stdlib.free(cast(void*)s);
 		}
 
 		void Text(wstring t) ///ditto
@@ -607,10 +613,8 @@ public:
 	Messagehandling
 ****************************************************************************************************/
 protected:
-private WindowEvent wev;
 extern(Windows) int CtrlEvents(HWND h,uint msg,uint wp,int lp)
 {
-	if(!wev) wev=new WindowEvent(msg);
 	Control    w = cast(Control) GetPropA(h,cast(char*) "ctrl_inst");
 	int ret=0;
 	try
@@ -619,11 +623,10 @@ extern(Windows) int CtrlEvents(HWND h,uint msg,uint wp,int lp)
 		{
 			if (w.evs.HasEvent(msg))
 			{
-				wev(h,msg,wp,lp);
 				if(ret==0)
-					ret=w.evs.Call(wev);
+					ret=w.evs.Call(WindowEvent(h,msg,wp,lp));
 				else
-					w.evs.Call(wev);
+					w.evs.Call(WindowEvent(h,msg,wp,lp));
 			}
 		}
 	}

@@ -59,12 +59,12 @@ class Timer{
 		running=false;
 	}
 
-	void Enabled(bool v)///
+	@property void Enabled(bool v)///
 	{
 		if(v)	Start();
 		else	Stop();
 	}
-	bool Enabled()	///
+	@property bool Enabled()	///
 	{	return running;	}
 
 	~this()

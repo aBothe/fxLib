@@ -190,7 +190,7 @@ class ConsoleWin : Window{
 
 	string prevInput;///String which has been entered before
 
-	public void Clear() ///Clear the output
+	public override void Clear() ///Clear the output
 	{
 		outp.Clear();
 	}

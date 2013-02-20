@@ -62,7 +62,7 @@ class EventHandler(ReturnType, Params ...) : FXObject
 }
 
 ///Represent default native window message event arguments
-class WindowEvent: FXObject
+struct WindowEvent
 {
 public:
 	this(HANDLE h,uint msg,uint wp=0,int lp=0)///

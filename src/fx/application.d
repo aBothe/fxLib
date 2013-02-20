@@ -15,7 +15,7 @@ class Application
 			{
 				done=true;
 			}
-			private static int OpenWins=0;
+			static int OpenWins=0;
 			static int OpenWindows() {return OpenWins;} /// retrieve count of open windows
 			private static bool done=false;
 
@@ -88,7 +88,7 @@ class Application
 		}
 
 		/// Quits the loop and invoke exit of the program
-		static void Quit()
+		static void Quit() nothrow
 			{
 				PostQuitMessage(0);
 				done=true;

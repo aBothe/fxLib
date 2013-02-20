@@ -23,10 +23,10 @@
     <DDocDirectory>..\man</DDocDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>.</OutputPath>
     <Externalconsole>True</Externalconsole>
     <Target>StaticLibrary</Target>
-    <OutputName>libfxLib</OutputName>
+    <OutputName>fx.lib</OutputName>
     <UnittestMode>False</UnittestMode>
     <ObjectsDirectory>obj\Release</ObjectsDirectory>
     <DebugLevel>0</DebugLevel>
@@ -45,45 +45,117 @@
     <Folder Include="fx\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fx\application.d" />
-    <Compile Include="fx\console.d" />
-    <Compile Include="fx\control.d" />
-    <Compile Include="fx\event.d" />
-    <Compile Include="fx\file.d" />
-    <Compile Include="fx\fxdef.d" />
-    <Compile Include="fx\fxobject.d" />
-    <Compile Include="fx\libwmp3.d" />
-    <Compile Include="fx\list.d" />
-    <Compile Include="fx\memory.d" />
-    <Compile Include="fx\mp3.d" />
-    <Compile Include="fx\myfx.d" />
-    <Compile Include="fx\process.d" />
-    <Compile Include="fx\string.d" />
-    <Compile Include="fx\win32.d" />
-    <Compile Include="fx\window.d" />
-    <Compile Include="fx\controls\button.d" />
-    <Compile Include="fx\controls\combobox.d" />
-    <Compile Include="fx\controls\filedialog.d" />
-    <Compile Include="fx\controls\ipbox.d" />
-    <Compile Include="fx\controls\listbox.d" />
-    <Compile Include="fx\controls\listview.d" />
-    <Compile Include="fx\controls\notifyicon.d" />
-    <Compile Include="fx\controls\progressbar.d" />
-    <Compile Include="fx\controls\statusbar.d" />
-    <Compile Include="fx\controls\textbox.d" />
-    <Compile Include="fx\controls\timer.d" />
-    <Compile Include="fx\controls\toolbar.d" />
-    <Compile Include="fx\controls\treeview.d" />
-    <Compile Include="fx\customcontrols\lineDiagram.d" />
-    <Compile Include="fx\customcontrols\piechart.d" />
-    <Compile Include="fx\net\http.d" />
-    <Compile Include="fx\net\httpclient.d" />
-    <Compile Include="fx\net\httpserver.d" />
-    <Compile Include="fx\net\tcpserver.d" />
-    <Compile Include="fx\net\udplistener.d" />
+    <Compile Include="fx\application.d">
+      <LastGenOutput>obj\Release\fx.application.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\console.d">
+      <LastGenOutput>obj\Release\fx.console.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\control.d">
+      <LastGenOutput>obj\Release\fx.control.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\event.d">
+      <LastGenOutput>obj\Release\fx.event.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\file.d">
+      <LastGenOutput>obj\Release\fx.file.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\fxdef.d">
+      <LastGenOutput>obj\Release\fx.fxdef.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\fxobject.d">
+      <LastGenOutput>obj\Release\fx.fxobject.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\libwmp3.d">
+      <LastGenOutput>obj\Release\fx.libwmp3.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\list.d">
+      <LastGenOutput>obj\Release\fx.list.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\memory.d">
+      <LastGenOutput>obj\Release\fx.memory.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\mp3.d">
+      <LastGenOutput>obj\Release\fx.mp3.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\myfx.d">
+      <LastGenOutput>obj\Release\fx.myfx.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\process.d">
+      <LastGenOutput>obj\Release\fx.process.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\string.d">
+      <LastGenOutput>obj\Release\fx.string.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\win32.d">
+      <LastGenOutput>obj\Release\fx.win32.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\window.d">
+      <LastGenOutput>obj\Release\fx.window.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\button.d">
+      <LastGenOutput>obj\Release\fx.controls.button.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\combobox.d">
+      <LastGenOutput>obj\Release\fx.controls.combobox.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\filedialog.d">
+      <LastGenOutput>obj\Release\fx.controls.filedialog.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\ipbox.d">
+      <LastGenOutput>obj\Release\fx.controls.ipbox.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\listbox.d">
+      <LastGenOutput>obj\Release\fx.controls.listbox.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\listview.d">
+      <LastGenOutput>obj\Release\fx.controls.listview.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\notifyicon.d">
+      <LastGenOutput>obj\Release\fx.controls.notifyicon.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\progressbar.d">
+      <LastGenOutput>obj\Release\fx.controls.progressbar.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\statusbar.d">
+      <LastGenOutput>obj\Release\fx.controls.statusbar.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\textbox.d">
+      <LastGenOutput>obj\Release\fx.controls.textbox.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\timer.d">
+      <LastGenOutput>obj\Release\fx.controls.timer.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\toolbar.d">
+      <LastGenOutput>obj\Release\fx.controls.toolbar.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\treeview.d">
+      <LastGenOutput>obj\Release\fx.controls.treeview.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\customcontrols\lineDiagram.d">
+      <LastGenOutput>obj\Release\fx.customcontrols.lineDiagram.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\customcontrols\piechart.d">
+      <LastGenOutput>obj\Release\fx.customcontrols.piechart.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\net\http.d">
+      <LastGenOutput>obj\Release\fx.net.http.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\net\httpclient.d">
+      <LastGenOutput>obj\Release\fx.net.httpclient.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\net\httpserver.d">
+      <LastGenOutput>obj\Release\fx.net.httpserver.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\net\tcpserver.d">
+      <LastGenOutput>obj\Release\fx.net.tcpserver.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\net\udplistener.d">
+      <LastGenOutput>obj\Release\fx.net.udplistener.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="fx\controls\mdi.d" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="fx\controls\mdi._d" />
     <None Include="fx\controls\tab._d" />
   </ItemGroup>
 </Project>

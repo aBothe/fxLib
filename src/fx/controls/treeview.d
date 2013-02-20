@@ -430,7 +430,7 @@ class TreeView : Control{
 		return cast(Object)cast(void*)tv.lParam;
 	}
 
-	void Clear()	///
+	override void Clear()	///
 	{	SendMessageA(handle,TVM_DELETEITEM, 0, cast(LPARAM)TVI_ROOT);	}
 
 	HTREEITEM Add(wstring label, HTREEITEM parent=TVI_ROOT, HTREEITEM insertAfter=TVI_LAST)///

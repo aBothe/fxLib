@@ -105,7 +105,7 @@ LB_MULTIPLEADDSTRING    =0x01B1
 	void Add(wstring text)///ditto
 	{SendMessageW(handle,LB_ADDSTRING,0,cast(int) cast(wchar*)text);}
 
-	void Clear()///
+	override void Clear()///
 	{SendMessageA(handle,LB_RESETCONTENT,0,0);}
 
 	void Insert(int i,string t)///

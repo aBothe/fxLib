@@ -5,8 +5,6 @@ Only this file must be included to use the big part of this framework
 +/
 module fx.myfx;
 
-
-
 pragma(lib,"fx.lib");
 pragma(lib,"kernel32.lib");
 pragma(lib,"user32.lib");
